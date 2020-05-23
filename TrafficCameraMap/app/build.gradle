@@ -33,6 +33,7 @@ ext {
     lifecyleVersion = '1.1.1'
     loggingInterceptor = '3.9.1'
     navigationVersion = '2.1.0'
+    multidex_version = '2.0.1'
 
 }
 
@@ -140,7 +141,8 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
-    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "androidx.multidex:multidex:$multidex_version"
 
 
 
