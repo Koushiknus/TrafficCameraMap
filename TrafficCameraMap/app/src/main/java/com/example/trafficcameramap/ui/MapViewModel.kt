@@ -19,7 +19,7 @@ class MapViewModel (application: Application) : BaseViewModel(application){
     fun getTrafficImages(dateTime: String){
 
         viewModelScope.launch {
-            val result = mMapViewRepository?.getTrafficImages("2020-05-23T01%3A01%3A01")
+            val result = mMapViewRepository?.getTrafficImages("2020-05-24T01:01:01")
             Log.v("ResultReceived",result.toString())
         }
     }

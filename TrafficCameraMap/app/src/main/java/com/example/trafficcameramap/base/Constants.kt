@@ -4,5 +4,5 @@ object Constants {
 
     val TIME_OUT = 60L
     val DATE_TIME = "YYYY-MM-DD[T]HH:mm:ss (SGT)"
-    val BASE_URL = "https://api.data.gov.sg/v1/transport/traffic-images?date_time=2020-05-23T01%3A01%3A01"
+    val BASE_URL = "https://api.data.gov.sg/v1/transport/"
 }

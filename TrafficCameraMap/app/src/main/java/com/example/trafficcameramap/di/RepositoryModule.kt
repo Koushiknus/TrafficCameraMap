@@ -1,5 +1,6 @@
 package com.example.trafficcameramap.di
 
+import com.example.trafficcameramap.ui.MapViewRepository
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -9,4 +10,10 @@ import dagger.Reusable
 @Suppress("unused")
 object RepositoryModule {
 
+    @Provides
+    @Reusable
+    @JvmStatic
+    internal fun provideMapViewRepository() : MapViewRepository{
+        return MapViewRepository()
+    }
 }

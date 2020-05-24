@@ -2,6 +2,9 @@ package com.example.trafficcameramap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
+import com.example.trafficcameramap.base.ViewModelFactory
+import com.example.trafficcameramap.ui.MapViewModel
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,6 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var mMapViewModel: MapViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +24,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
+        mMapViewModel = ViewModelProviders.of(this,ViewModelFactory(application)).get(MapViewModel::class.java)
+        initialObservers()
         mapFragment.getMapAsync(this)
+    }
+
+    private fun initialObservers(){
+        mMapViewModel.getTrafficImages("")
     }
 
     /**
