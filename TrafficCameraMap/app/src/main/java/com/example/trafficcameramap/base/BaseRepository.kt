@@ -4,6 +4,7 @@ import com.example.trafficcameramap.di.AppModule
 import com.example.trafficcameramap.di.DaggerRepositoryInjector
 import com.example.trafficcameramap.di.RepositoryInjector
 import com.example.trafficcameramap.di.RepositoryModule
+import com.example.trafficcameramap.ui.MapViewRepository
 
 abstract class BaseRepository {
 
@@ -19,6 +20,7 @@ abstract class BaseRepository {
 
     private fun inject(){
         when(this){
+            is MapViewRepository -> injector.inject(this)
         }
     }
 }
