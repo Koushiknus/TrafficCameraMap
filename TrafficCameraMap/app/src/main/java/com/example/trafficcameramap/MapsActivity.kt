@@ -2,6 +2,8 @@ package com.example.trafficcameramap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.trafficcameramap.base.ViewModelFactory
 import com.example.trafficcameramap.ui.MapViewModel
@@ -31,6 +33,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun initialObservers(){
         mMapViewModel.getTrafficImages("")
+        mMapViewModel.mListOfCameras.observe(this, Observer {
+            Log.v("ListOFObserversRcvd",it.size.toString())
+        })
     }
 
     /**
