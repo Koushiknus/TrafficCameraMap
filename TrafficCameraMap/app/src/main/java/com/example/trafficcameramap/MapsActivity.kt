@@ -8,12 +8,14 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.trafficcameramap.base.ViewModelFactory
 import com.example.trafficcameramap.model.Cameras
 import com.example.trafficcameramap.ui.MapViewModel
+import com.example.trafficcameramap.utils.CustomInfoAdapter
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -58,8 +60,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(intialPosition))
         for (i in cameraList){
             val marker = LatLng(i.location.latitude,i.location.longitude)
-            mMap.addMarker(MarkerOptions().position(marker).title("testing"))
+            val markerOptions = MarkerOptions().position(marker).title(i.image)
+            mMap.addMarker(markerOptions)
         }
+        mMap.setInfoWindowAdapter(CustomInfoAdapter(this))
+
 
     }
 }
